@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
-import afzalLogo from '../../assets/logo/Afzal-logo.png'
+
+import afzalLogo from '../../assets/logo/Afzal-Logo.png'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)

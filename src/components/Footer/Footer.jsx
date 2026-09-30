@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { FaEnvelope, FaLinkedinIn } from 'react-icons/fa6'
 import './Footer.css'
 
-import logo from '../../assets/logo/Afzal-logo.png'
+import logo from '../../assets/logo/Afzal-Logo.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
