@@ -1,0 +1,452 @@
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: #071c1e;
+  border-top: 1px solid rgba(102, 178, 178, 0.12);
+}
+
+.footer-container {
+  width: min(1320px, 90%);
+  margin: 0 auto;
+}
+
+/* =================================
+   TOP SECTION
+================================= */
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr;
+  gap: 80px;
+  padding: 115px 0 95px;
+  border-bottom: 1px solid rgba(102, 178, 178, 0.12);
+}
+
+.footer-brand {
+  max-width: 760px;
+}
+
+.footer-label {
+  display: block;
+  margin-bottom: 28px;
+  color: #66b2b2;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-brand h2 {
+  margin: 0;
+  color: #f1f7f7;
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 0.92;
+}
+
+.footer-brand h2 span {
+  display: block;
+  color: #66b2b2;
+}
+
+.footer-brand p {
+  max-width: 480px;
+  margin: 35px 0 0;
+  color: #829a9c;
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+/* =================================
+   CONTACT
+================================= */
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.footer-small-label {
+  margin-bottom: 18px;
+  color: #527477;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* =================================
+   LET'S TALK BUTTON
+================================= */
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #f1f7f7;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-link span:last-child {
+  color: #66b2b2;
+  transition: transform 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: #66b2b2;
+}
+
+.footer-contact-link:hover span:last-child {
+  transform: translate(5px, -5px);
+}
+
+.footer-email {
+  margin-top: 22px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(102, 178, 178, 0.25);
+  color: #829a9c;
+  font-size: 1rem;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.footer-email:hover {
+  color: #b2d8d8;
+  border-color: #66b2b2;
+}
+
+/* =================================
+   MIDDLE
+================================= */
+
+.footer-middle {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.5fr;
+  align-items: center;
+  gap: 40px;
+  padding: 38px 0;
+  border-bottom: 1px solid rgba(102, 178, 178, 0.12);
+}
+
+/* =================================
+   LOGO
+================================= */
+
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-logo {
+  display: block;
+  width: 115px;
+  height: auto;
+  object-fit: contain;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-logo-link:hover .footer-logo {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.footer-nav a,
+.footer-nav button {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #829a9c;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a::after,
+.footer-nav button::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #66b2b2;
+  content: '';
+  transition: width 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav button:hover {
+  color: #66b2b2;
+}
+
+.footer-nav a:hover::after,
+.footer-nav button:hover::after {
+  width: 100%;
+}
+
+/* =================================
+   SOCIALS
+================================= */
+
+.footer-socials {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(102, 178, 178, 0.22);
+  border-radius: 50%;
+  color: #829a9c;
+  font-size: 1rem;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+  border-color: #66b2b2;
+  background: #008080;
+  color: #f1f7f7;
+  transform: translateY(-3px);
+}
+
+/* =================================
+   BOTTOM
+================================= */
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 30px;
+  padding: 25px 0;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #527477;
+  font-size: 0.62rem;
+  line-height: 1.6;
+}
+
+.footer-bottom p:nth-child(2) {
+  text-align: center;
+}
+
+/* =================================
+   BACK TO TOP
+================================= */
+
+.footer-top-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #66b2b2;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-top-button span:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(102, 178, 178, 0.25);
+  border-radius: 50%;
+  font-size: 1rem;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-top-button:hover span:last-child {
+  background: #008080;
+  color: #f1f7f7;
+  transform: translateY(-3px);
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .footer-contact {
+    align-items: flex-start;
+  }
+
+  .footer-middle {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-nav {
+    justify-content: flex-start;
+  }
+
+  .footer-socials {
+    justify-content: flex-start;
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+  .footer-top {
+    padding: 85px 0 70px;
+  }
+
+  .footer-brand h2 {
+    font-size: 3.5rem;
+  }
+
+  .footer-brand p {
+    margin-top: 28px;
+  }
+
+  .footer-contact-link {
+    font-size: 1.5rem;
+  }
+
+  .footer-logo {
+    width: 100px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .footer-nav a,
+  .footer-nav button {
+    font-size: 20px;
+  }
+
+  .footer-socials {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+  }
+
+  .footer-bottom p:nth-child(2) {
+    display: none;
+  }
+
+  .footer-top-button {
+    justify-self: end;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 400px) {
+  .footer-brand h2 {
+    font-size: 3rem;
+  }
+
+  .footer-contact-link {
+    font-size: 1.3rem;
+  }
+
+  .footer-nav {
+    gap: 15px;
+  }
+
+  .footer-nav a,
+  .footer-nav button {
+    font-size: 20px;
+  }
+
+  .footer-bottom {
+    align-items: start;
+  }
+}
+
+/* =================================
+   ACCESSIBILITY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-contact-link,
+  .footer-contact-link span,
+  .footer-logo,
+  .footer-nav a,
+  .footer-nav button,
+  .footer-nav a::after,
+  .footer-nav button::after,
+  .footer-socials a,
+  .footer-top-button span:last-child {
+    transition: none;
+  }
+}

@@ -1,0 +1,321 @@
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+  padding: 65px 0 35px;
+  background: #071c1e;
+  color: #f1f7f7;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  align-items: start;
+  gap: 72px;
+  width: min(1380px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+/* =========================================
+   IMAGE AREA
+========================================= */
+
+.about-visual {
+  position: relative;
+  min-width: 0;
+}
+
+.about-image-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid rgba(178, 216, 216, 0.22);
+  border-radius: 24px;
+  background: #0b292c;
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.22),
+    0 0 45px rgba(0, 128, 128, 0.07);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.about-image-frame:hover {
+  border-color: rgba(102, 178, 178, 0.55);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.3),
+    0 0 55px rgba(0, 166, 166, 0.12);
+  transform: translateY(-4px);
+}
+
+.about-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+}
+
+/* =========================================
+   IMAGE CAPTION
+========================================= */
+
+.about-image-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 2px 0;
+  color: #8fb9ba;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: 1.5;
+}
+
+.about-image-caption span:last-child {
+  color: #66b2b2;
+  text-align: right;
+}
+
+/* =========================================
+   CONTENT AREA
+========================================= */
+
+.about-content {
+  min-width: 0;
+  padding-top: 8px;
+}
+
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 20px;
+  color: #66b2b2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.about-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 2px;
+  background: #66b2b2;
+  box-shadow: 0 0 14px rgba(102, 178, 178, 0.35);
+}
+
+.about-title {
+  max-width: 650px;
+  margin: 0;
+  color: #f1f7f7;
+  font-size: clamp(40px, 4.5vw, 68px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -2.6px;
+}
+
+.about-title span {
+  display: block;
+  color: #b2d8d8;
+}
+
+.about-description {
+  max-width: 650px;
+  margin: 23px 0 0;
+  color: #a8c8c9;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 38px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(178, 216, 216, 0.2);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-stat strong {
+  color: #f1f7f7;
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.about-stat span {
+  color: #8fb9ba;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 54px;
+  margin-top: 38px;
+  padding: 0 21px;
+  border: 1px solid #66b2b2;
+  border-radius: 100px;
+  background: #008080;
+  color: #f1f7f7;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-button span {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.about-button:hover {
+  border-color: #b2d8d8;
+  background: #006666;
+  box-shadow: 0 10px 30px rgba(0, 128, 128, 0.2);
+  transform: translateY(-3px);
+}
+
+.about-button:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .about-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 45px;
+  }
+
+  .about-title {
+    font-size: clamp(38px, 4.5vw, 58px);
+    letter-spacing: -2px;
+  }
+
+  .about-description {
+    font-size: 14px;
+  }
+
+  .about-stats {
+    gap: 15px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+  .about-section {
+    padding: 55px 0 35px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    width: calc(100% - 32px);
+  }
+
+  .about-content {
+    padding-top: 0;
+  }
+
+  .about-title {
+    max-width: 600px;
+    font-size: clamp(38px, 9vw, 54px);
+    letter-spacing: -1.7px;
+  }
+
+  .about-description {
+    max-width: 650px;
+    font-size: 14px;
+  }
+
+  .about-image-frame {
+    border-radius: 20px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .about-image-caption {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .about-image-caption span:last-child {
+    text-align: left;
+  }
+
+  .about-stats {
+    gap: 12px;
+  }
+
+  .about-stat strong {
+    font-size: 29px;
+  }
+
+  .about-stat span {
+    font-size: 10px;
+  }
+
+  .about-button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-frame,
+  .about-button,
+  .about-button span {
+    transition: none;
+  }
+
+  .about-image-frame:hover,
+  .about-button:hover {
+    transform: none;
+  }
+
+  .about-button:hover span {
+    transform: none;
+  }
+}
