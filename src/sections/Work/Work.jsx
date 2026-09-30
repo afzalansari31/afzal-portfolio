@@ -5,7 +5,7 @@ import studioByIsim from '../../assets/projects/studiobyisimwork.png'
 import isimx from '../../assets/projects/isimxwork.png'
 import campcardSolutions from '../../assets/projects/campcardwork.png'
 import indiaPresenceSummit from '../../assets/projects/indiapresencesummitwork.png'
-import transengg from '../../assets/projects/Transenggwork.png'
+import transengg from '../../assets/projects/TransEnggwork.png'
 
 const projects = [
   {
