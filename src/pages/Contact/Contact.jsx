@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import {
   FaArrowRight,
@@ -7,15 +8,18 @@ import {
 } from 'react-icons/fa6'
 import './Contact.css'
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    message: '',
-  })
+const initialFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  projectType: '',
+  budget: '',
+  timeline: '',
+  message: '',
+}
 
+const Contact = () => {
+  const [formData, setFormData] = useState(initialFormData)
   const [status, setStatus] = useState('idle')
 
   const projectTypes = [
@@ -25,6 +29,23 @@ const Contact = () => {
     'LMS / Online Course',
     'Custom Web Development',
     'Other',
+  ]
+
+  const budgetOptions = [
+    'Under ₹10,000',
+    '₹10,000–₹25,000',
+    '₹25,000–₹50,000',
+    '₹50,000–₹1,00,000',
+    '₹1,00,000+',
+    'Not sure yet',
+  ]
+
+  const timelineOptions = [
+    'Within 1–2 weeks',
+    'Within 2–4 weeks',
+    'Within 1–2 months',
+    'Flexible',
+    'Just exploring',
   ]
 
   const handleChange = (event) => {
@@ -38,7 +59,6 @@ const Contact = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     setStatus('submitting')
 
     const form = event.currentTarget
@@ -57,14 +77,7 @@ const Contact = () => {
         throw new Error('Form submission failed')
       }
 
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        message: '',
-      })
-
+      setFormData(initialFormData)
       setStatus('success')
     } catch (error) {
       console.error('Contact form error:', error)
@@ -76,16 +89,11 @@ const Contact = () => {
     <main className="contact-page">
       <section className="contact-section">
         <div className="contact-container">
-
-          {/* Breadcrumb */}
-
           <div className="contact-breadcrumb">
             <a href="/">Home</a>
             <span>/</span>
             <span>Contact</span>
           </div>
-
-          {/* Intro */}
 
           <div className="contact-intro">
             <div className="contact-intro-content">
@@ -94,14 +102,14 @@ const Contact = () => {
               </span>
 
               <h1>
-                Let's work
+                Let&apos;s work
                 <span>together.</span>
               </h1>
 
               <p>
                 Whether you need a new website, a redesign, an
                 e-commerce store, or a custom web solution,
-                I'd love to hear about it.
+                I&apos;d love to hear about it.
               </p>
             </div>
 
@@ -112,14 +120,8 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Main Contact Area */}
-
           <div className="contact-main">
-
-            {/* Contact Information */}
-
             <div className="contact-details">
-
               <div className="contact-detail-heading">
                 <span>GET IN TOUCH</span>
                 <div />
@@ -132,7 +134,6 @@ const Contact = () => {
 
                 <div>
                   <small>Email</small>
-
                   <a href="mailto:ansariafzal511@gmail.com">
                     ansariafzal511@gmail.com
                   </a>
@@ -165,7 +166,7 @@ const Contact = () => {
                 <p>
                   Have an idea or a website that needs
                   improvement? Send me the details and
-                  let's start a conversation.
+                  let&apos;s start a conversation.
                 </p>
 
                 <a
@@ -179,16 +180,11 @@ const Contact = () => {
                   <FaArrowRight />
                 </a>
               </div>
-
             </div>
 
-            {/* Form */}
-
             <div className="contact-form-container">
-
               {status === 'success' ? (
                 <div className="contact-success">
-
                   <div className="contact-success-circle">
                     <FaArrowRight />
                   </div>
@@ -203,7 +199,7 @@ const Contact = () => {
 
                   <p>
                     Your message has been received successfully.
-                    I'll get back to you as soon as possible.
+                    I&apos;ll get back to you as soon as possible.
                   </p>
 
                   <button
@@ -213,7 +209,6 @@ const Contact = () => {
                     Send another message
                     <FaArrowRight />
                   </button>
-
                 </div>
               ) : (
                 <form
@@ -240,10 +235,7 @@ const Contact = () => {
                     <h2>Tell me about your project.</h2>
                   </div>
 
-                  {/* Name + Email */}
-
                   <div className="contact-fields-row">
-
                     <div className="contact-field">
                       <label htmlFor="name">
                         Name <span>*</span>
@@ -256,6 +248,7 @@ const Contact = () => {
                         placeholder="Your name"
                         value={formData.name}
                         onChange={handleChange}
+                        autoComplete="name"
                         required
                       />
                     </div>
@@ -272,18 +265,15 @@ const Contact = () => {
                         placeholder="you@example.com"
                         value={formData.email}
                         onChange={handleChange}
+                        autoComplete="email"
                         required
                       />
                     </div>
-
                   </div>
-
-                  {/* Phone */}
 
                   <div className="contact-field">
                     <label htmlFor="phone">
-                      Phone
-                      <small>Optional</small>
+                      Phone <small>Optional</small>
                     </label>
 
                     <input
@@ -293,10 +283,9 @@ const Contact = () => {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={handleChange}
+                      autoComplete="tel"
                     />
                   </div>
-
-                  {/* Project Type */}
 
                   <div className="contact-field">
                     <label htmlFor="projectType">
@@ -321,7 +310,53 @@ const Contact = () => {
                     </select>
                   </div>
 
-                  {/* Message */}
+                  <div className="contact-fields-row">
+                    <div className="contact-field">
+                      <label htmlFor="budget">
+                        Estimated budget
+                      </label>
+
+                      <select
+                        id="budget"
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                      >
+                        <option value="">
+                          Select your budget
+                        </option>
+
+                        {budgetOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="contact-field">
+                      <label htmlFor="timeline">
+                        Expected timeline
+                      </label>
+
+                      <select
+                        id="timeline"
+                        name="timeline"
+                        value={formData.timeline}
+                        onChange={handleChange}
+                      >
+                        <option value="">
+                          Select timeline
+                        </option>
+
+                        {timelineOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
 
                   <div className="contact-field contact-message">
                     <label htmlFor="message">
@@ -345,10 +380,7 @@ const Contact = () => {
                     </div>
                   )}
 
-                  {/* Submit */}
-
                   <div className="contact-submit-row">
-
                     <p>
                       I usually respond within 1–2 business days.
                     </p>
@@ -367,16 +399,11 @@ const Contact = () => {
                         <FaArrowRight />
                       </i>
                     </button>
-
                   </div>
-
                 </form>
               )}
-
             </div>
-
           </div>
-
         </div>
       </section>
     </main>

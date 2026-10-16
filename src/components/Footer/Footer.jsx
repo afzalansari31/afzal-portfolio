@@ -1,279 +1,210 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import { FaEnvelope, FaLinkedinIn } from 'react-icons/fa6'
-import './Footer.css'
 
+import { useLocation, useNavigate, Link } from 'react-router-dom'
+import {
+  FaArrowDown,
+  FaArrowUpRightFromSquare,
+  FaEnvelope,
+  FaLinkedinIn,
+} from 'react-icons/fa6'
 import logo from '../../assets/logo/Afzal-Logo.png'
+import './Footer.css'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
-
   const location = useLocation()
   const navigate = useNavigate()
 
-  const scrollToSection = (sectionId) => {
-    if (location.pathname === '/') {
-      const section = document.getElementById(sectionId)
+  const footerLinks = [
+    { label: 'Home', sectionId: 'home' },
+    { label: 'About', sectionId: 'about' },
+    { label: 'Services', sectionId: 'services' },
+    { label: 'Experience', sectionId: 'experience' },
+    { label: 'Process', sectionId: 'process' },
+  ]
 
-      if (section) {
-        window.history.pushState(
-          null,
-          '',
-          `/#${sectionId}`,
-        )
+  const scrollToSection = (event, sectionId) => {
+    event.preventDefault()
 
-        section.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }
+    if (location.pathname !== '/') {
+      navigate(sectionId === 'home' ? '/' : `/#${sectionId}`)
+
+      window.setTimeout(() => {
+        if (sectionId === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          document.getElementById(sectionId)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          })
+        }
+      }, 250)
 
       return
     }
 
-    navigate(`/#${sectionId}`)
-
-    setTimeout(() => {
-      const section = document.getElementById(sectionId)
-
-      if (section) {
-        section.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }
-    }, 200)
-  }
-
-  const handleHomeClick = () => {
-    if (location.pathname === '/') {
+    if (sectionId === 'home') {
       window.history.pushState(null, '', '/')
-
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
 
-    navigate('/')
+    window.history.pushState(null, '', `/#${sectionId}`)
 
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    }, 150)
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
   }
 
-  const handleWorkClick = () => {
-    if (location.pathname === '/work') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+  const scrollToTop = (event) => {
+    event.preventDefault()
 
+    if (location.pathname !== '/') {
+      navigate('/')
+      window.setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 250)
       return
     }
 
-    navigate('/work')
-
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    }, 150)
-  }
-
-  const handleContactClick = () => {
-    if (location.pathname === '/contact') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-
-      return
-    }
-
-    navigate('/contact')
-
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    }, 150)
-  }
-
-  const handleLogoClick = () => {
-    handleHomeClick()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-
-        {/* TOP SECTION */}
-        <div className="footer-top">
-
-          <div className="footer-brand">
-            <span className="footer-label">
-              Web Developer · WordPress Specialist
+    <footer className="af-footer">
+      <div className="af-footer-container">
+        <div className="af-footer-cta">
+          <div className="af-footer-cta-copy">
+            <span className="af-footer-eyebrow">
+              <span className="af-footer-status-dot" />
+              HAVE A PROJECT IN MIND?
             </span>
 
             <h2>
-              Let's make
-              <span>something useful</span>
+              Let&apos;s make
+              <span> something meaningful.</span>
             </h2>
 
             <p>
-              Building modern, purposeful websites with clean development,
-              thoughtful design, and reliable technology.
+              Have an idea, a business to grow, or a website that needs
+              a fresh start? Let&apos;s build something that works for you.
             </p>
           </div>
 
-          <div className="footer-contact">
+          <Link to="/contact" className="af-footer-cta-button">
+            <span>Let&apos;s talk</span>
+            <FaArrowUpRightFromSquare />
+          </Link>
 
-            <span className="footer-small-label">
-              Have a project?
-            </span>
+          <div className="af-footer-cta-decoration" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
 
-            <button
-              type="button"
-              className="footer-contact-link"
-              onClick={handleContactClick}
+        <div className="af-footer-divider" />
+
+        <div className="af-footer-main">
+          <div className="af-footer-brand">
+            <Link
+              to="/"
+              onClick={(event) => scrollToSection(event, 'home')}
+              className="af-footer-logo"
+              aria-label="Afzal Ansari home"
             >
-              <span>Let's Talk</span>
-              <span>↗</span>
-            </button>
+              <img src={logo} alt="Afzal Ansari" />
+            </Link>
+
+            <p>
+              Web developer creating thoughtful digital experiences
+              with WordPress, modern web technologies, and clean design.
+            </p>
+
+            <span className="af-footer-location">
+              <span className="af-footer-location-dot" />
+              Based in Mumbai, India
+            </span>
+          </div>
+
+          <div className="af-footer-navigation">
+            <span className="af-footer-column-title">EXPLORE</span>
+
+            <nav aria-label="Footer navigation">
+              {footerLinks.map((item) => (
+                <a
+                  href={item.sectionId === 'home' ? '/' : `/#${item.sectionId}`}
+                  key={item.label}
+                  onClick={(event) =>
+                    scrollToSection(event, item.sectionId)
+                  }
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              <Link to="/work">Selected work</Link>
+            </nav>
+          </div>
+
+          <div className="af-footer-connect">
+            <span className="af-footer-column-title">LET&apos;S CONNECT</span>
 
             <a
               href="mailto:ansariafzal511@gmail.com"
-              className="footer-email"
+              className="af-footer-contact-link"
             >
-              ansariafzal511@gmail.com
+              <span className="af-footer-social-icon">
+                <FaEnvelope />
+              </span>
+
+              <span className="af-footer-contact-text">
+                <small>Email me</small>
+                <strong>Let&apos;s start a conversation</strong>
+              </span>
+
+              <FaArrowUpRightFromSquare className="af-footer-external-icon" />
             </a>
-
-          </div>
-
-        </div>
-
-        {/* MIDDLE */}
-        <div className="footer-middle">
-
-          {/* LOGO */}
-          <button
-            type="button"
-            className="footer-logo-link"
-            onClick={handleLogoClick}
-            aria-label="Go to homepage"
-          >
-            <img
-              src={logo}
-              alt="Afzal Ansari"
-              className="footer-logo"
-            />
-          </button>
-
-          {/* NAVIGATION */}
-          <nav className="footer-nav">
-
-            <button
-              type="button"
-              onClick={handleHomeClick}
-            >
-              Home
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('about')}
-            >
-              About
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('services')}
-            >
-              Services
-            </button>
-
-            <button
-              type="button"
-              onClick={handleWorkClick}
-            >
-              Work
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('process')}
-            >
-              Process
-            </button>
-
-            <button
-              type="button"
-              onClick={handleContactClick}
-            >
-              Contact
-            </button>
-
-          </nav>
-
-          {/* SOCIALS */}
-          <div className="footer-socials">
 
             <a
               href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              className="af-footer-contact-link"
             >
-              <FaLinkedinIn />
-            </a>
+              <span className="af-footer-social-icon">
+                <FaLinkedinIn />
+              </span>
 
-            <a
-              href="mailto:ansariafzal511@gmail.com"
-              aria-label="Email"
-            >
-              <FaEnvelope />
-            </a>
+              <span className="af-footer-contact-text">
+                <small>LinkedIn</small>
+                <strong>Connect professionally</strong>
+              </span>
 
+              <FaArrowUpRightFromSquare className="af-footer-external-icon" />
+            </a>
           </div>
-
         </div>
 
-        {/* BOTTOM */}
-        <div className="footer-bottom">
-
+        <div className="af-footer-bottom">
           <p>
-            © {currentYear} Afzal Ansari. All rights reserved.
+            © {currentYear} <strong>Afzal Ansari.</strong> All rights reserved.
           </p>
 
-          <p>
-            Designed & built with intention.
-          </p>
+          <span className="af-footer-made">
+            Designed with intention <span>✳</span> Built with care
+          </span>
 
-          <button
-            type="button"
-            className="footer-top-button"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-              })
-            }}
+          <a
+            href="/"
+            className="af-footer-back-top"
+            onClick={scrollToTop}
             aria-label="Back to top"
           >
             <span>Back to top</span>
-            <span>↑</span>
-          </button>
-
+            <FaArrowDown />
+          </a>
         </div>
-
       </div>
     </footer>
   )
