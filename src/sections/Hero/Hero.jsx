@@ -49,9 +49,9 @@ const Hero = () => {
 
           <div className="hero-actions">
             <a
-              href="/Afzal-Ansari-Resume.pdf"
+              href="/afzal-ansari-cv-1.pdf"
               className="hero-resume"
-              download="Afzal-Ansari-Resume.pdf"
+              download="afzal-ansari-cv-1.pdf"
             >
               <span>Download Resume</span>
               <span className="hero-button-icon">↗</span>
